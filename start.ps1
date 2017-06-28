@@ -20,6 +20,12 @@ $defaultSwitchMsu 		= '/quiet /norestart'
 $defaultSwitchMsi 		= '/qn /norestart'
 $defaultSwitchMsp 		= '/qn'
 
+# Create deploy folder, if it does not exist    
+If (-not(Test-Path -Path $currentdir\deploy))
+{
+    New-Item -Path $currentdir -Name 'deploy' -ItemType Directory
+}
+
 Function Add-DeployOption
 {
     Param
